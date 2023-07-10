@@ -1,0 +1,4 @@
+"id","name","age","salary"
+1,"devin",24,10000
+2,"anjana",25,20000
+3,"don",21,80000
