@@ -1,0 +1,8 @@
+For the Django Project,
+Select a Template from this Page ( https://templatemo.com/ )
+After That Download it and Extract It
+Create a Django Project which Includes All the Pages from the Selected Website
+Make Sure to Load all the Static Files & Recourses
+Then All Repetitive Items Like the Data in the Rows in a Table &or basically Multiple Containers with Similar Structure but Different Data should be Stored in Objects Created in the Views Page but its Corresponding Classes Should be Made and Called from the Models File 
+now if the student would Like to Use an Attached Database (db.sqlite3) in the Models File it is the Students Decision
+The SQL Can be Used also to Make the Attached forms on the Webpage Working to Collect Data…
