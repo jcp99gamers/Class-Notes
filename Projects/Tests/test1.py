@@ -1,3 +1,19 @@
+"""
+Difficulty Medium
+File Name = test1.py
+Function Name = main
+Parameters of Function = records(list)
+Sample Input: records = [['chi',20.0],['beta',50.0],['alpha',50.0]]
+TO DO:
+- Convert the list 'records' to a dictionary 'sample'
+- In this Case the dictionary would become "sample = {20.0: ['chi'], 50.0: ['beta', 'alpha']}"
+- Get the Second Lowest Value from the Dictionary Keys
+- In this Case the value would be "second_lowest = 50.0"
+- Then Take the Value Assigned to that Key(second_lowest) and Rearrange them in Ascending Order
+- In this Case the value would be "result = ['alpha', 'beta']"
+- return that List
+"""
+
 def main(records:list):
     '''
     sorted_students = sorted(students, key=lambda x: (-x[1], x[0]))
