@@ -1,44 +1,50 @@
 """
-Difficulty Hard
+Difficulty Medium
 File Name = test2.py
 Function Name = main
-Parameters of Function = notes(list), totalAmount(int)
-Sample Input: notes = [30, 6, 4, 1], totalAmount = 99
+Parameters of Function = records(list)
+Sample Input: records = [['chi',20.0],['beta',50.0],['alpha',50.0]]
 TO DO:
-- Utilising the Given List we Know what are the Denominations of Notes we have
-- We Need to Figure out How to Get the Minimum Number of Notes taken to give the sum totalAmount
-- Make the List of the Notes
+- Convert the list 'records' to a dictionary 'sample'
+- In this Case the dictionary would become "sample = {20.0: ['chi'], 50.0: ['beta', 'alpha']}"
+- Get the Second Lowest Value from the Dictionary Keys
+- In this Case the value would be "second_lowest = 50.0"
+- Then Take the Value Assigned to that Key(second_lowest) and Rearrange them in Ascending Order
+- In this Case the value would be "result = ['alpha', 'beta']"
 - return that List
-- eg: Test Cases keeping the notes denominations same ([30,6,4,1]) & giving Different Total Amounts the below are the expected results
-- 98 => [30,30,30,4,4], 99 => [30,30,30,4,4,1], 100 => [30,30,30,6,4]
-- return the List (of Least Number of Notes to get that Sum)
 """
 
-def main(notes:list, totalAmount:int):
-    # Initialize the result list
-    ListOfLists = []
-    AmmountToGet = totalAmount 
-    listOfNotes = notes    
-    # Define a recursive function to find sublists
-    def find_sublist(target, current_list, start_index):
-        # Base case: if the target is 0, append the current list to the ListOfLists
-        if target == 0:
-            ListOfLists.append(current_list)
-            return
-        # Iterate through the numbers starting from start_index
-        for i in range(start_index, len(listOfNotes)):
-            # If the current number is less than or equal to the target
-            if listOfNotes[i] <= target:
-                # Recursively call the function with updated parameters
-                find_sublist(target - listOfNotes[i], current_list + [listOfNotes[i]], i)
-    # Call the recursive function
-    find_sublist(AmmountToGet, [], 0)
-    subList =  sorted(ListOfLists, key=lambda x: len(x))
-    result = sorted(sorted(subList[0]), reverse=True)
+def main(records:list):
+    '''
+    sorted_students = sorted(students, key=lambda x: (-x[1], x[0]))
+    highest_score = sorted_students[0][1]
+    top_students = [student[0] for student in sorted_students if student[1] == highest_score]
+    return top_students
+    '''
+    # records = []
+    # for _ in range(int(input())):
+    #     name = input()
+    #     score = float(input())
+    #     records.append([name,score])
+    sample = {}
+    for key, value in records:
+        if value in sample:
+            sample[value].append(key)
+        else:
+            sample[value] = [key]
+    """
+    second_lowest = sorted(list(set(grade for name, grade in records)))[1]
+    result = sorted(sample[second_lowest])
+    print(second_lowest)
+    """
+    try:
+        result = sorted(sample[sorted(list(set(grade for name, grade in records)))[1]])
+    except:
+        result = []
+    # print(sample)
+    """
+    for name in result:
+        print(name)
+    """
+    # print(result)
     return result
-
-# # Test cases
-# test_cases2 = []
-# print([30, 6, 4, 1])
-# for x in range(85,100):
-#     print(x,"=>",main([30, 6, 4, 1], x))
